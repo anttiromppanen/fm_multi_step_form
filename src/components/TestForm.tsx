@@ -1,8 +1,13 @@
-import { Field, Form, Formik, FormikHelpers, useFormik } from "formik";
+import { Form, Formik, FormikProps } from "formik";
+import { ReactNode, Ref } from "react";
 
-function TestForm({ innerRef, initialValues, children }) {
-  // Pass the useFormik() hook initial form values and a submit function that will
-  // be called when the form is submitted
+interface Props {
+  innerRef: Ref<FormikProps<object>> | undefined,
+  initialValues: object,
+  children: ReactNode,
+}
+
+function TestForm({ innerRef, initialValues, children }: Props) {
   return (
     <Formik
       innerRef={innerRef}

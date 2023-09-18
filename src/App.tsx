@@ -1,16 +1,14 @@
-import { Form, Formik } from "formik";
-import * as Yup from "yup";
+import { FormikProps } from "formik";
 import { useRef, useState } from "react";
 import FormContainer from "./components/FormContainer";
 import Sidebar from "./components/Sidebar/Sidebar";
-import TestForm from "./components/TestForm";
 import SubmitButton from "./components/SubmitButton";
 import PersonalInfoView from "./views/PersonalInfoView";
 import PlanView from "./views/PlanView";
 
 function App() {
   const [isError, setIsError] = useState(false);
-  const formRef = useRef();
+  const formRef = useRef<FormikProps<object>>(null);
 
   const handleSubmit = () => {
     if (formRef.current) {

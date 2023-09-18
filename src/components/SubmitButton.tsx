@@ -1,4 +1,8 @@
-function SubmitButton({ handleSubmit }) {
+interface Props {
+  handleSubmit: () => void;
+}
+
+function SubmitButton({ handleSubmit }: Props) {
   return (
     <div className="flex w-full justify-between bg-userWhite p-4">
       <button type="button" className="text-sm font-bold text-userCoolGrey">

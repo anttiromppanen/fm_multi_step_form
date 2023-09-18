@@ -1,5 +1,11 @@
+import { Ref } from "react";
+import { FormikProps } from "formik";
 import StyledInput from "../components/StyledInput";
 import ViewFactory from "./ViewFactory";
+
+interface Props {
+  formRef: Ref<FormikProps<object>> | undefined,
+}
 
 function FormChildren() {
   return (
@@ -30,7 +36,7 @@ function FormChildren() {
   );
 }
 
-function PersonalInfoView({ formRef }) {
+function PersonalInfoView({ formRef }: Props) {
   return (
     <ViewFactory
       formRef={formRef}

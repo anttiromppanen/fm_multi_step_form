@@ -1,36 +1,16 @@
+import { FormikProps } from "formik";
+import { ReactNode, Ref } from "react";
 import TestForm from "../components/TestForm";
-import StyledInput from "../components/StyledInput";
 
-function FormChildren() {
-  return (
-    <>
-      <StyledInput
-        isError={false}
-        label="firstName"
-        name="firstName"
-        setIsError={() => {}}
-        placeholder="John"
-      />
-      <StyledInput
-        isError={false}
-        label="lastName"
-        name="lastName"
-        setIsError={() => {}}
-        placeholder="Doe"
-      />
-      <StyledInput
-        isError={false}
-        label="email"
-        name="email"
-        type="email"
-        setIsError={() => {}}
-        placeholder="john@acme.com"
-      />
-    </>
-  );
+interface Props {
+  formRef: Ref<FormikProps<object>> | undefined;
+  heading: string;
+  text: string;
+  initialValues: object;
+  children: ReactNode;
 }
 
-function ViewFactory({ formRef, heading, text, initialValues, children }) {
+function ViewFactory({ formRef, heading, text, initialValues, children }: Props) {
   return (
     <>
       <h1 className="text-xl font-bold text-userMarineBlue">{heading}</h1>
