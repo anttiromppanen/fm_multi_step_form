@@ -1,19 +1,40 @@
 interface Props {
+  currentStepIndex: number;
+  isLastStep: boolean;
   handleSubmit: () => void;
+  handleGoBack: () => void;
 }
 
-function SubmitButton({ handleSubmit }: Props) {
+function SubmitButton({
+  currentStepIndex,
+  isLastStep,
+  handleSubmit,
+  handleGoBack,
+}: Props) {
   return (
-    <div className="flex w-full justify-between bg-userWhite p-4">
-      <button type="button" className="text-sm font-bold text-userCoolGrey">
-        Go Back
-      </button>
+    <div
+      className={`flex w-full bg-userWhite p-4 md:px-24 ${
+        currentStepIndex > 0 ? "justify-between" : "justify-end"
+      }`}
+    >
+      {currentStepIndex > 0 && (
+        <button
+          type="button"
+          onClick={handleGoBack}
+          className="text-sm font-bold text-userCoolGrey hover:brightness-50 md:text-base"
+        >
+          Go Back
+        </button>
+      )}
       <button
         type="submit"
         onClick={handleSubmit}
-        className="rounded-md bg-userMarineBlue px-4 py-3 text-userWhite md:px-5 md:py-3"
+        className={`min-w-[112px] rounded-md bg-userMarineBlue px-5 py-3 
+        text-userWhite hover:brightness-125 md:px-5 md:py-3 ${
+          isLastStep && " bg-userPurplishBlue"
+        }`}
       >
-        Next Step
+        {isLastStep ? "Confirm" : "Next Step"}
       </button>
     </div>
   );

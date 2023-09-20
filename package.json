@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "formik": "^2.4.4",
+    "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "yup": "^1.2.0"
+    "react-responsive": "^9.0.2",
+    "yup": "^1.2.0",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

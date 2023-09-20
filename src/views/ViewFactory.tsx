@@ -10,11 +10,21 @@ interface Props {
   children: ReactNode;
 }
 
-function ViewFactory({ formRef, heading, text, initialValues, children }: Props) {
+function ViewFactory({
+  formRef,
+  heading,
+  text,
+  initialValues,
+  children,
+}: Props) {
   return (
     <>
-      <h1 className="text-xl font-bold text-userMarineBlue">{heading}</h1>
-      <p className="my-4 text-userCoolGrey">{text}</p>
+      <h1 className="select-none text-2xl font-bold text-userMarineBlue md:text-4xl">
+        {heading}
+      </h1>
+      <p className="mb-5 mt-2 select-none text-userCoolGrey md:mb-10 md:text-lg">
+        {text}
+      </p>
       <TestForm innerRef={formRef} initialValues={initialValues}>
         <div className="flex flex-col gap-y-3">{children}</div>
       </TestForm>
